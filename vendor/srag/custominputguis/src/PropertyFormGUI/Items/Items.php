@@ -102,17 +102,19 @@ final class Items
 
                     $item->setValue($key);
                 } else {
+                    if (isset($field["setTitle"])){
                     if (!$field["setTitle"]) {
                         $item->setTitle($parent->txt($key));
-                    }
+                    }}
 
                     $item->setPostVar($key);
                 }
             }
 
+            if (isset($field["setInfo"])){
             if (!$field["setInfo"]) {
                 $item->setInfo($parent->txt($key . "_info", ""));
-            }
+            }}
         }
 
         self::setPropertiesToItem($item, $field);

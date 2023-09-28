@@ -11,7 +11,7 @@ include_once('./Services/COPage/classes/class.ilPageComponentPluginExporter.php'
  */
 class ilSrGeogebraExporter extends ilPageComponentPluginExporter
 {
-    public function init()
+    public function init(): void
     {
         include_once('./Services/COPage/classes/class.ilCOPageDataSet.php');
         $this->ds = new ilCOPageDataSet();
@@ -26,7 +26,11 @@ class ilSrGeogebraExporter extends ilPageComponentPluginExporter
      * @param array        ids
      * @return        array        array of array with keys "component", entity", "ids"
      */
-    public function getXmlExportHeadDependencies($a_entity, $a_target_release, $a_ids)
+    public function getXmlExportHeadDependencies(
+        string $a_entity,
+        string $a_target_release,
+        array $a_ids
+    ): array
     {
         // collect the files to export
         $file_ids = array();
@@ -59,7 +63,11 @@ class ilSrGeogebraExporter extends ilPageComponentPluginExporter
      * @param string        id
      * @return    string        xml string
      */
-    public function getXmlRepresentation($a_entity, $a_schema_version, $a_id)
+    public function getXmlRepresentation(
+        string $a_entity,
+        string $a_schema_version,
+        string $a_id
+    ): string
     {
         if ($a_entity == 'pgcp') {
 
@@ -94,7 +102,11 @@ class ilSrGeogebraExporter extends ilPageComponentPluginExporter
      * @param array        ids
      * @return        array        array of array with keys "component", entity", "ids"
      */
-    public function getXmlExportTailDependencies($a_entity, $a_target_release, $a_ids)
+    public function getXmlExportTailDependencies(
+        string $a_entity,
+        string $a_target_release,
+        array $a_ids
+    ): array
     {
         return array();
     }
@@ -115,7 +127,7 @@ class ilSrGeogebraExporter extends ilPageComponentPluginExporter
      *
      * @return        array
      */
-    public function getValidSchemaVersions($a_entity)
+    public function getValidSchemaVersions(string $a_entity): array
     {
         return array(
             '5.3.0' => array(

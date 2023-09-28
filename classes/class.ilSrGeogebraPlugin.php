@@ -6,7 +6,7 @@ use ILIAS\DI\Container;
 use srag\CustomInputGUIs\SrGeogebra\Loader\CustomInputGUIsLoaderDetector;
 use srag\Plugins\SrGeogebra\Upload\UploadService;
 use srag\Plugins\SrGeogebra\Utils\SrGeogebraTrait;
-use srag\RemovePluginDataConfirm\SrGeogebra\PluginUninstallTrait;
+//use srag\RemovePluginDataConfirm\SrGeogebra\PluginUninstallTrait;
 
 /**
  * Class ilSrGeogebraPlugin
@@ -18,7 +18,7 @@ use srag\RemovePluginDataConfirm\SrGeogebra\PluginUninstallTrait;
 class ilSrGeogebraPlugin extends ilPageComponentPlugin
 {
 
-    use PluginUninstallTrait;
+   // use PluginUninstallTrait;
     use SrGeogebraTrait;
     const PLUGIN_ID = "srgg";
     const PLUGIN_NAME = "SrGeogebra";
@@ -37,20 +37,24 @@ class ilSrGeogebraPlugin extends ilPageComponentPlugin
      */
     public static function getInstance() : self
     {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
+        GLOBAL $DIC;
+        /** @var ilComponentFactory $component_factory */
+        $component_factory = $DIC["component.factory"];
+        return $component_factory->getPlugin('srgg');
     }
+
 
 
     /**
      * ilSrGeogebraPlugin constructor
      */
-    public function __construct()
+    public function __construct(
+        \ilDBInterface $db,
+        \ilComponentRepositoryWrite $component_repository,
+        string $id
+    )
     {
-        parent::__construct();
+        parent::__construct($db, $component_repository, $id);
     }
 
 
@@ -76,7 +80,11 @@ class ilSrGeogebraPlugin extends ilPageComponentPlugin
     /**
      * @inheritDoc
      */
-    public function onDelete(/*array*/ $properties, /*string*/ $plugin_version)/*: void*/
+    public function onDelete(
+        array $a_properties,
+        string $a_plugin_version,
+        bool $move_operation = false
+    ): void
     {
         if (self::dic()->ctrl()->getCmd() !== "moveAfter") {
 
@@ -87,7 +95,10 @@ class ilSrGeogebraPlugin extends ilPageComponentPlugin
     /**
      * @inheritDoc
      */
-    public function onClone(/*array*/ &$properties, /*string*/ $plugin_version)/*: void*/
+    public function onClone(
+        array &$a_properties,
+        string $a_plugin_version
+    ): void
     {
 
     }
@@ -113,29 +124,32 @@ class ilSrGeogebraPlugin extends ilPageComponentPlugin
     }
 
 
-    protected function beforeActivation()
+    protected function beforeActivation(): bool
     {
-        return $this->checkSuffixAvailable(self::plugin()->translate("config_activation_error"));
+      //  return $this->checkSuffixAvailable(self::plugin()->translate("config_activation_error"));
+        return true;
     }
 
 
-    protected function beforeUpdate()
+    protected function beforeUpdate(): bool
     {
-        return $this->checkSuffixAvailable(self::UPDATE_ERROR_MSG);
+       // return $this->checkSuffixAvailable(self::UPDATE_ERROR_MSG);
+        return true;
     }
+
 
 
     protected function checkSuffixAvailable($error_msg) {
-        global $DIC;
+        /*global $DIC;
 
         $whitelist = ilFileUtils::getValidExtensions();
 
         // Error if file extension "ggb" is not whitelisted upon plugin activation
         if (!in_array(UploadService::FILE_SUFFIX, $whitelist)) {
             ilUtil::sendFailure($error_msg, true);
-            return false;
+            return true;
         }
-
+*/
         return true;
     }
 

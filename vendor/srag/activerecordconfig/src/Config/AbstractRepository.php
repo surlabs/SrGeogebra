@@ -52,7 +52,11 @@ abstract class AbstractRepository
 
             $type = $field[0];
 
-            $default_value = $field[1];
+           if (isset($field[1])){
+               $default_value = $field[1];
+           } else {
+               $default_value = null;
+           }
 
             switch ($type) {
                 case Config::TYPE_STRING:
@@ -74,7 +78,11 @@ abstract class AbstractRepository
                     return $this->getDateTimeValue($name, $default_value);
 
                 case Config::TYPE_JSON:
+                  if (isset($field[2])){
                     $assoc = boolval($field[2]);
+                    } else {
+                        $assoc = false;
+                    }
 
                     return $this->getJsonValue($name, $assoc, $default_value);
 

@@ -66,7 +66,7 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
     /**
      * @inheritDoc
      */
-    public function executeCommand()/*:void*/
+    public function executeCommand():void
     {
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
@@ -113,7 +113,7 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
     /**
      * @inheritDoc
      */
-    public function insert()/*:void*/
+    public function insert():void
     {
         $this->edit();
     }
@@ -122,7 +122,7 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
     /**
      * @inheritDoc
      */
-    public function create()/*:void*/
+    public function create():void
     {
         $parent_id = ilObject::_lookupObjectId(filter_input(INPUT_GET, "ref_id"));
         $page_id = filter_input(INPUT_GET, "obj_id");
@@ -201,7 +201,7 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
     /**
      * @inheritDoc
      */
-    public function edit()/*:void*/
+    public function edit():void
     {
         if (!empty($this->getProperties())) {
             $this->setSubTabs(self::SUBTAB_GENERIC_SETTINGS);

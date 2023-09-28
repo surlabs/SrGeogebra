@@ -3,6 +3,7 @@
 namespace srag\CustomInputGUIs\SrGeogebra\PropertyFormGUI;
 
 use Closure;
+use ilComponentFactory;
 use ilFormPropertyGUI;
 use ilFormSectionHeaderGUI;
 use ilPropertyFormGUI;
@@ -162,11 +163,11 @@ abstract class PropertyFormGUI extends ilPropertyFormGUI
      */
     public function txt(string $key,/*?*/ string $default = null) : string
     {
-        if ($default !== null) {
-            return self::plugin()->translate($key, static::LANG_MODULE, [], true, "", $default);
-        } else {
-            return self::plugin()->translate($key, static::LANG_MODULE);
-        }
+        global $DIC;
+        /** @var ilComponentFactory $component_factory */
+        $component_factory = $DIC["component.factory"];
+
+        return $component_factory->getPlugin('srgg')->txt('config_'.$key);
     }
 
 
@@ -252,7 +253,7 @@ abstract class PropertyFormGUI extends ilPropertyFormGUI
      *
      * @deprecated
      */
-    private final function getFields(array $fields, $parent_item)/*: void*/
+    private function getFields(array $fields, $parent_item)/*: void*/
     {
         if (!is_array($fields)) {
             throw new PropertyFormGUIException("\$fields needs to be an array!", PropertyFormGUIException::CODE_INVALID_FIELD);
@@ -263,7 +264,7 @@ abstract class PropertyFormGUI extends ilPropertyFormGUI
                 throw new PropertyFormGUIException("\$fields needs to be an array!", PropertyFormGUIException::CODE_INVALID_FIELD);
             }
 
-            if ($field[self::PROPERTY_NOT_ADD]) {
+            if (isset($field[self::PROPERTY_NOT_ADD])) {
                 continue;
             }
 
@@ -287,7 +288,7 @@ abstract class PropertyFormGUI extends ilPropertyFormGUI
                 }
             }
 
-            if (is_array($field[self::PROPERTY_SUBITEMS])) {
+            if (isset($field[self::PROPERTY_SUBITEMS])) {
                 $this->getFields($field[self::PROPERTY_SUBITEMS], $item);
             }
 
@@ -323,7 +324,7 @@ abstract class PropertyFormGUI extends ilPropertyFormGUI
     /**
      * @deprecated
      */
-    private final function initForm()/*: void*/
+    private function initForm()/*: void*/
     {
         $this->initAction();
 
@@ -338,7 +339,7 @@ abstract class PropertyFormGUI extends ilPropertyFormGUI
     /**
      * @deprecated
      */
-    private final function initItems()/*: void*/
+    private function initItems()/*: void*/
     {
         $this->initFields();
 
@@ -351,7 +352,7 @@ abstract class PropertyFormGUI extends ilPropertyFormGUI
      *
      * @deprecated
      */
-    private final function storeFormItems(array $fields)/*: void*/
+    private function storeFormItems(array $fields)/*: void*/
     {
         foreach ($fields as $key => $field) {
             if (isset($this->items_cache[$key])) {
@@ -363,7 +364,7 @@ abstract class PropertyFormGUI extends ilPropertyFormGUI
                     $this->storeValue($key, $value);
                 }
 
-                if (is_array($field[self::PROPERTY_SUBITEMS])) {
+                if (isset($field[self::PROPERTY_SUBITEMS])) {
                     if (!($item instanceof MultiLineInputGUI) && !($item instanceof MultiLineNewInputGUI) && !($item instanceof TabsInputGUI) && !($item instanceof TabsInputGUITab)) {
                         $this->storeFormItems($field[self::PROPERTY_SUBITEMS]);
                     }

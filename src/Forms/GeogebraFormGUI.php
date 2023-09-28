@@ -47,7 +47,7 @@ class GeogebraFormGUI extends PropertyFormGUI
     const ALIGNMENT_RIGHT = "right";
     const DEFAULT_ALIGNMENT = self::ALIGNMENT_LEFT;
 
-    protected $mode;
+    protected string $mode;
     /**
      * @var array
      */
