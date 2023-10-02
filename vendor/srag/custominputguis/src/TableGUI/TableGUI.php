@@ -54,6 +54,7 @@ abstract class TableGUI extends ilTable2GUI
      * @deprecated
      */
     const ROW_TEMPLATE = "";
+    const PLUGIN_CLASS_NAME = ilSrGeogebraPlugin::class;
     /**
      * @var array
      *
@@ -103,7 +104,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    public function exportData(/*int*/ $format, /*bool*/ $send = false)/*: void*/
+    public function exportData(/*int*/ $format, /*bool*/ $send = false): void
     {
         switch ($format) {
             case self::EXPORT_PDF:
@@ -122,7 +123,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    public function fillFooter()/*: void*/
+    public function fillFooter(): void
     {
         parent::fillFooter();
     }
@@ -133,7 +134,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    public function fillHeader()/*: void*/
+    public function fillHeader(): void
     {
         parent::fillHeader();
     }
@@ -166,7 +167,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    public final function initFilter()/*: void*/
+    public final function initFilter(): void
     {
         $this->setDisableFilterHiding(true);
 
@@ -242,7 +243,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    public function setExportFormats(array $formats)/*: void*/
+    public function setExportFormats(array $formats): void
     {
         parent::setExportFormats($formats);
 
@@ -315,7 +316,13 @@ abstract class TableGUI extends ilTable2GUI
         $html = self::output()->getHTML($tpl);
 
         $a = new ilHtmlToPdfTransformerFactory();
-        $a->deliverPDFFromHTMLString($html, "export.pdf", $send ? ilHtmlToPdfTransformerFactory::PDF_OUTPUT_DOWNLOAD : ilHtmlToPdfTransformerFactory::PDF_OUTPUT_FILE, static::PLUGIN_CLASS_NAME, "");
+        $a->deliverPDFFromHTMLString(
+            $html,
+            "export.pdf",
+            $send ? ilHtmlToPdfTransformerFactory::PDF_OUTPUT_DOWNLOAD : ilHtmlToPdfTransformerFactory::PDF_OUTPUT_FILE,
+            static::PLUGIN_CLASS_NAME,
+            ""
+        );
     }
 
 
@@ -326,7 +333,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    protected function fillHeaderCSV(/*ilCSVWriter*/ $csv)/*: void*/
+    protected function fillHeaderCSV(/*ilCSVWriter*/ $csv): void
     {
         foreach ($this->getSelectableColumns() as $column) {
             if ($this->isColumnSelected($column["id"])) {
@@ -346,7 +353,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    protected function fillHeaderExcel(ilExcel $excel, /*int*/ &$row)/*: void*/
+    protected function fillHeaderExcel(ilExcel $excel, /*int*/ &$row): void
     {
         $col = 0;
 
@@ -389,7 +396,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    protected function fillRow(/*array*/ $row)/*: void*/
+    protected function fillRow(/*array*/ $row): void
     {
         $this->tpl->setCurrentBlock("column");
 
@@ -417,7 +424,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    protected function fillRowCSV(/*ilCSVWriter*/ $csv, /*array*/ $row)/*: void*/
+    protected function fillRowCSV(/*ilCSVWriter*/ $csv, /*array*/ $row): void
     {
         foreach ($this->getSelectableColumns() as $column) {
             if ($this->isColumnSelected($column["id"])) {
@@ -438,7 +445,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    protected function fillRowExcel(ilExcel $excel, /*int*/ &$row, /*array*/ $result)/*: void*/
+    protected function fillRowExcel(ilExcel $excel, /*int*/ &$row, /*array*/ $result): void
     {
         $col = 0;
         foreach ($this->getSelectableColumns() as $column) {
@@ -587,7 +594,7 @@ abstract class TableGUI extends ilTable2GUI
      *
      * @deprecated
      */
-    private final function checkRowTemplateConst() : bool
+    private function checkRowTemplateConst() : bool
     {
         return (defined("static::ROW_TEMPLATE") && !empty(static::ROW_TEMPLATE));
     }
@@ -596,7 +603,7 @@ abstract class TableGUI extends ilTable2GUI
     /**
      * @deprecated
      */
-    private final function initRowTemplate()/*: void*/
+    private function initRowTemplate()/*: void*/
     {
         if ($this->checkRowTemplateConst()) {
             $this->setRowTemplate(static::ROW_TEMPLATE, self::plugin()->directory());
@@ -611,7 +618,7 @@ abstract class TableGUI extends ilTable2GUI
     /**
      * @deprecated
      */
-    private final function initTable()/*: void*/
+    private function initTable()/*: void*/
     {
         if (!(strpos($this->parent_cmd, "applyFilter") === 0
             || strpos($this->parent_cmd, "resetFilter") === 0)

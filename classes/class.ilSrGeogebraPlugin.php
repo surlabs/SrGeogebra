@@ -86,7 +86,8 @@ class ilSrGeogebraPlugin extends ilPageComponentPlugin
         bool $move_operation = false
     ): void
     {
-        if (self::dic()->ctrl()->getCmd() !== "moveAfter") {
+        global $DIC;
+        if ($DIC->ctrl()->getCmd() !== "moveAfter") {
 
         }
     }

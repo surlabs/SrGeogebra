@@ -89,7 +89,7 @@ class GeogebraFormGUI extends PropertyFormGUI
             return Repository::getInstance()->getValue($target_key);
         }
 
-        if ($this->mode === self::MODE_CREATE) {
+        if ($this->mode == self::MODE_CREATE) {
             switch ($key) {
                 case "width":
                 case "height":
@@ -101,7 +101,7 @@ class GeogebraFormGUI extends PropertyFormGUI
             }
 
             return "";
-        } else if ($this->mode === self::MODE_EDIT) {
+        } else if ($this->mode == self::MODE_EDIT) {
             switch ($key) {
                 case "title":
                     return $this->properties["title"];
@@ -121,18 +121,24 @@ class GeogebraFormGUI extends PropertyFormGUI
     }
 
 
+
     /**
      * @inheritDoc
      */
     protected function initCommands()/*: void*/
     {
-        if ($this->mode === self::MODE_CREATE) {
-            $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_CREATE, self::plugin()->translate("create", "form"));
-        } else if ($this->mode === self::MODE_EDIT) {
-            $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_UPDATE, self::plugin()->translate("save", "form"));
+        GLOBAL $DIC;
+        /** @var ilComponentFactory $component_factory */
+        $component_factory = $DIC["component.factory"];
+        $this->pl = $component_factory->getPlugin('srgg');
+
+        if ($this->mode == self::MODE_CREATE) {
+            $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_CREATE, $this->pl->txt("create"));
+        } else if ($this->mode == self::MODE_EDIT) {
+            $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_UPDATE, $this->pl->txt("save"));
         }
 
-        $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_CANCEL, self::plugin()->translate("cancel", "form"));
+        $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_CANCEL, $this->pl->txt("cancel"));
     }
 
 
@@ -227,9 +233,9 @@ class GeogebraFormGUI extends PropertyFormGUI
      */
     protected function initTitle()/*: void*/
     {
-        if ($this->mode === self::MODE_CREATE) {
+        if ($this->mode == self::MODE_CREATE) {
             $this->setTitle($this->txt('title_create'));
-        } else if ($this->mode === self::MODE_EDIT) {
+        } else if ($this->mode == self::MODE_EDIT) {
             $this->setTitle($this->txt('title_edit'));
         }
     }

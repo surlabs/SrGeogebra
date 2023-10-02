@@ -84,20 +84,22 @@ final class Items
                     . " not exists!", PropertyFormGUIException::CODE_INVALID_PROPERTY_CLASS);
             }
 
-            if ($field[PropertyFormGUI::PROPERTY_CLASS] === ilRepositorySelector2InputGUI::class) {
+            if ($field[PropertyFormGUI::PROPERTY_CLASS] == ilRepositorySelector2InputGUI::class) {
                 $item = new $field[PropertyFormGUI::PROPERTY_CLASS]("", $key, false, get_class($parent));
             } else {
                 $item = new $field[PropertyFormGUI::PROPERTY_CLASS]();
             }
 
             if ($item instanceof ilFormSectionHeaderGUI) {
-                if (!$field["setTitle"]) {
+                if (!$field["setTitle"] !== null) {
                     $item->setTitle($parent->txt($key));
                 }
             } else {
                 if ($item instanceof ilRadioOption) {
-                    if (!$field["setTitle"]) {
-                        $item->setTitle($parent->txt($parent_item->getPostVar() . "_" . $key));
+                    if (isset($field["setTitle"])) {
+                        if (!$field["setTitle"]) {
+                            $item->setTitle($parent->txt($parent_item->getPostVar() . "_" . $key));
+                        }
                     }
 
                     $item->setValue($key);
@@ -110,6 +112,7 @@ final class Items
                     $item->setPostVar($key);
                 }
             }
+
 
             if (isset($field["setInfo"])){
             if (!$field["setInfo"]) {
@@ -300,8 +303,13 @@ final class Items
             return;
         }
 
+        // #SUR# Update the value of the form to empty if null
         if (method_exists($item, "setValue") && !($item instanceof ilRadioOption)) {
+            if (is_null($value)) {
+                $value = "";
+            }
             $item->setValue($value);
+
         }
     }
 

@@ -45,15 +45,16 @@ class UploadService
     }
 
 
-    public function uploadAllowed() {
+    public function uploadAllowed(): bool
+    {
         global $DIC;
 
-        $whitelist = ilFileUtils::getValidExtensions();
+        /*$whitelist = ilFileUtils::getValidExtensions();
 
-        // Error if file extension "ggb" is not whitelisted upon plugin activation
+        Error if file extension "ggb" is not whitelisted upon plugin activation
         if (!in_array(UploadService::FILE_SUFFIX, $whitelist)) {
             return false;
-        }
+        }*/
 
         return true;
     }

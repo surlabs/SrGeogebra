@@ -58,9 +58,13 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
     public function __construct()
     {
         parent::__construct();
-        $this->pl = new ilSrGeogebraPlugin();
+        GLOBAL $DIC;
+        /** @var ilComponentFactory $component_factory */
+        $component_factory = $DIC["component.factory"];
+        $this->pl = $component_factory->getPlugin('srgg');
         $this->uploader = new UploadService();
     }
+
 
 
     /**
@@ -364,18 +368,18 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
 
     protected function convertPropertyValueTypes(&$properties) {
         foreach ($properties as $key => $property) {
-            if (strpos($key, "custom_") === 0) {
+            if (strpos($key, "custom_") == 0) {
                 $postKey = str_replace("custom_", "", $key);
                 $field_type = $this->fetchCustomFieldTypes($postKey);
                 $properties[$key] = $this->convertValueByType($field_type, $property);
             }
 
-            if (strpos($key, "advanced_") === 0) {
+            if (strpos($key, "advanced_") == 0) {
                 $postKey = str_replace("advanced_", "", $key);
-                $field_type = Repository::getInstance()->getFields()[$postKey][0];
+               if (isset(Repository::getInstance()->getFields()[$postKey][0])){ $field_type = Repository::getInstance()->getFields()[$postKey][0];
                 $properties[$key] = $this->convertValueByType($field_type, $property);
             }
-        }
+        }}
     }
 
 
