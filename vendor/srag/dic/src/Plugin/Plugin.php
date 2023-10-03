@@ -116,7 +116,8 @@ final class Plugin implements PluginInterface
      */
     public function reloadDatabase()/* : void*/
     {
-        $this->plugin_object->updateDatabase();
+       //#SUR# removed because it calls a protected function
+        // $this->plugin_object->updateDatabase();
     }
 
 

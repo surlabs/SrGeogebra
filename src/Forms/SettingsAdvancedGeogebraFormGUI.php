@@ -73,8 +73,13 @@ class SettingsAdvancedGeogebraFormGUI extends BaseAdvancedGeogebraFormGUI
      */
     protected function initCommands()
     {
-        $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_UPDATE_ADVANCED_PROPERTIES, self::plugin()->translate("save", "form"));
-        $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_CANCEL, self::plugin()->translate("cancel", "form"));
+        GLOBAL $DIC;
+        /** @var ilComponentFactory $component_factory */
+        $component_factory = $DIC["component.factory"];
+        $pl = $component_factory->getPlugin('srgg');
+
+        $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_UPDATE_ADVANCED_PROPERTIES, $pl->txt("save"));
+        $this->addCommandButton(ilSrGeogebraPluginGUI::CMD_CANCEL, $pl->txt("cancel"));
     }
 
 

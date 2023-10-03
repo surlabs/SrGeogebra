@@ -74,3 +74,47 @@ subtab_generic_settings#:#Generic Settings
 subtab_advanced_settings#:#Advanced Settings
 alert_file_exists#:#The file "%1$s" already exists on the server. Automatically using the existing file. Please check if the displayed Geogebra object is correct. If the displayed Geogebra object is incorrect consider renaming the uploaded file and retry.
 config_activation_error#:#Activation failed. Please add the file extension "ggb" into the ILIAS file upload whitelist.
+configuration#:#Configuration
+default_height#:#Default Height
+default_enableShiftDragZoom#:#Default "Enable Dragging And Zooming" Value
+default_showResetIcon#:#Default "Enable Reset Icon" Value
+default_alignment#:#Default Alignment
+appName#:#App Name
+borderColor#:#Border Color
+enableRightClick#:#Enable Right Click
+enableLabelDrags#:#Enable Label Drags
+showZoomButtons#:#Show Zoom Buttons
+errorDialogsActive#:#Show Error Dialogs
+showMenuBar#:#Show Menu Bar / Undo Button
+showToolBar#:#Show Tool Bar
+showToolBarHelp#:#Show Tool Bar Help
+showAlgebraInput#:#Show Algebra Input
+language#:#Language
+allowStyleBar#:#Show Style Bar
+useBrowserForJS#:#Use Browser For JS
+showLogging#:#Show Logging
+capturingThreshold#:#Capturing Threshold
+enable3d#:#Enable 3D
+enableCAS#:#Enable CAS
+algebraInputPosition#:#Algebra Input Position
+preventFocus#:#Prevent Focus
+autoHeight#:#Auto Height
+allowUpscale#:#Allow Upscale
+playButton#:#Show Play Button
+scale#:#Scale
+showAnimationButton#:#Show Animation Button
+showFullscreenButton#:#Show Fullscreen Button
+showSuggestionButtons#:#Show Suggestion Buttons
+showStartTooltip#:#Show Start Tooltip
+rounding#:#Show Rounding
+buttonShadows#:#Button Shadows
+buttonRounding#:#Button Rounding
+header_value#:#Header Value
+default_width#:#Default Width
+enable3d_info#:#Always active 3D
+enableCAS_info#:#Always active CAS
+scale_info#:#Only downscaling is currently supported
+save#:#Save
+header_immutable#:#Immutable
+title_create#:#Create Geogebra object
+title_edit#:#Edit Geogebra object

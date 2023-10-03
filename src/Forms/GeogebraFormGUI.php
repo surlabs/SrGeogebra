@@ -233,10 +233,15 @@ class GeogebraFormGUI extends PropertyFormGUI
      */
     protected function initTitle()/*: void*/
     {
+        GLOBAL $DIC;
+        /** @var ilComponentFactory $component_factory */
+        $component_factory = $DIC["component.factory"];
+        $pl = $component_factory->getPlugin('srgg');
+
         if ($this->mode == self::MODE_CREATE) {
-            $this->setTitle($this->txt('title_create'));
+            $this->setTitle($pl->txt('title_create'));
         } else if ($this->mode == self::MODE_EDIT) {
-            $this->setTitle($this->txt('title_edit'));
+            $this->setTitle($pl->txt('title_edit'));
         }
     }
 
