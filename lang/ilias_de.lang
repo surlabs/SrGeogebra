@@ -74,3 +74,47 @@ subtab_generic_settings#:#Spezifische Einstellungen
 subtab_advanced_settings#:#Erweiterte Einstellungen
 alert_file_exists#:#Die Datei "%1$s" existiert bereits auf dem Server. Die bereits existierende Datei wird priorisiert. Bitte überprüfen Sie, ob das angezeigte Geogebra-Objekt korrekt ist. Ändern Sie den Dateinamen und laden Sie die das Geogebra-Objekt erneut hoch, falls ein falsches Geogebra-Objekt angezeigt wird.
 config_activation_error#:#Aktivierung fehlgeschlagen. Bitte fügen Sie die Dateiendung "ggb" in die Whitelist der ILIAS Upload-Einstellungen hinzu.
+configuration#:#Konfiguration
+default_height#:#Standardhöhe
+default_enableShiftDragZoom#:#Standardwert "Zoom & Bewegen aktivieren"
+default_showResetIcon#:#Standardwert "Neu laden aktivieren"
+default_alignment#:#Standardausrichtung
+appName#:#App Name
+borderColor#:#Rahmenfarbe
+enableRightClick#:#Rechtsklick aktivieren
+enableLabelDrags#:#Beschriftungen ziehen aktivieren
+showZoomButtons#:#Zoom-Knopf aktivieren
+errorDialogsActive#:#Fehlerdialoge aktivieren
+showMenuBar#:#Menüleiste anzeigen / Zurücksetzen anzeigen
+showToolBar#:#Symbolleiste anzeigen
+showToolBarHelp#:#Symbolleistenhilfe anzeigen
+showAlgebraInput#:#Algebraeingaben anzeigen
+language#:#Sprache
+allowStyleBar#:#Stilleiste anzeigen
+useBrowserForJS#:#JS für Browser aktivieren
+showLogging#:#Logging anzeigen
+capturingThreshold#:#Selektions-Schwellenwert
+enable3d#:#3D aktivieren
+enableCAS#:#CAS aktivieren
+algebraInputPosition#:#Algebra-Eingabeposition
+preventFocus#:#Start-Fokus verhindern
+autoHeight#:#Automatische Höhe
+allowUpscale#:#Hochskalierung erlauben
+playButton#:#Startknopf anzeigen
+scale#:#Skalierung
+showAnimationButton#:#Animationsknopf anzeigen
+showFullscreenButton#:#Vollbildschirm anzeigen
+showSuggestionButtons#:#Vorschlagsknöpfe anzeigen
+showStartTooltip#:#Willkommensnachricht anzeigen
+rounding#:#Rundung
+buttonShadows#:#Knopfschatten anzeigen
+buttonRounding#:#Knopfrundung
+header_value#:#Wert
+default_width#:#Standardbreite
+enable3d_info#:#Dauerhaft aktiviert
+enableCAS_info#:#Dauerhaft aktiviert
+scale_info#:#Momentan wird nur die Herunterskalierung unterstützt
+save#:#Speichern
+header_immutable#:#Fixiert
+title_create#:#Geogebra-Objekt erstellen
+title_edit#:#Geogebra-Objekt bearbeiten

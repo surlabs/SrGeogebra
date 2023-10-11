@@ -11,10 +11,10 @@ form_title#:#Title
 form_file#:#Upload
 form_width#:#Width
 form_height#:#Height
-form_showResetIcon#:#Enable Reset Icon
-form_enableShiftDragZoom#:#Enable Dragging And Zooming
+custom_showResetIcon#:#Enable Reset Icon
+form_enableShiftDragZoom#:#Enable Dragging And Zooming 1
 config_default_showResetIcon#:#Default "Enable Reset Icon" Value
-config_default_enableShiftDragZoom#:#Default "Enable Dragging And Zooming" Value
+config_default_enableShiftDragZoom#:#Default "Enable Dragging And Zooming 2" Value
 config_default_height#:#Default Height
 config_default_width#:#Default Width
 config_default_alignment#:#Default Alignment
@@ -60,7 +60,7 @@ config_immutable#:#Immutable Fields
 config_immutable_info#:#Fields added to this list cannot be changed within GeoGebra objects. The values specified in this configuration will always be used instead.
 config_header_immutable#:#Immutable
 config_header_value#:#Value
-form_zoom#:#Enable Dragging And Zooming
+form_zoom#:#Enable Dragging And Zooming 3
 form_reset#:#Enable Reset Icon
 form_title_create#:#Create Geogebra object
 form_title_edit#:#Edit Geogebra object
@@ -76,7 +76,7 @@ alert_file_exists#:#The file "%1$s" already exists on the server. Automatically 
 config_activation_error#:#Activation failed. Please add the file extension "ggb" into the ILIAS file upload whitelist.
 configuration#:#Configuration
 default_height#:#Default Height
-default_enableShiftDragZoom#:#Default "Enable Dragging And Zooming" Value
+enableShiftDragZoom#:#Default "Enable Dragging And Zooming 4" Value
 default_showResetIcon#:#Default "Enable Reset Icon" Value
 default_alignment#:#Default Alignment
 appName#:#App Name
@@ -118,3 +118,4 @@ save#:#Save
 header_immutable#:#Immutable
 title_create#:#Create Geogebra object
 title_edit#:#Edit Geogebra object
+showResetIcon#:#Enable Reset Icon

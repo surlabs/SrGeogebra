@@ -5,7 +5,9 @@ namespace srag\CustomInputGUIs\SrGeogebra\TableGUI;
 use ilCSVWriter;
 use ilExcel;
 use ilFormPropertyGUI;
-use ilHtmlToPdfTransformerFactory;
+//#SUR# class deprecated, export in ilias 8 now works with the print view of the browser
+//use ilHtmlToPdfTransformerFactory;
+use ilSrGeogebraPlugin;
 use ilTable2GUI;
 use srag\CustomInputGUIs\SrGeogebra\MultiLineNewInputGUI\MultiLineNewInputGUI;
 use srag\CustomInputGUIs\SrGeogebra\PropertyFormGUI\Items\Items;
