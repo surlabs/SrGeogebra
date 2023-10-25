@@ -103,4 +103,8 @@ interface DatabaseInterface extends ilDBPdoInterface
      * @return int
      */
     public function store(string $table_name, array $values, string $primary_key_field,/*?*/ int $primary_key_value = 0) : int;
+
+    public function primaryExistsByFields(string $table_name, array $fields) : bool;
+
+
 }

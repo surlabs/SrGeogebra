@@ -8,7 +8,7 @@ use ilDBPdoInterface;
 use ilDBPdoPostgreSQL;
 use ilDBStatement;
 use PDO;
-use srag\DIC\SrGeogebra\Exception\DICException;
+//use srag\DIC\SrGeogebra\Exception\DICException;
 use stdClass;
 
 /**
@@ -215,5 +215,10 @@ class DatabaseDetector extends AbstractILIASDatabaseDetector
 
             return $primary_key_value;
         }
+    }
+    public function primaryExistsByFields(string $table_name, array $fields): bool
+    {
+        // TODO: Implement primaryExistsByFields() method.
+        return false;
     }
 }
