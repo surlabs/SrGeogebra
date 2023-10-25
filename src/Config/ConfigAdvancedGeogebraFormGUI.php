@@ -128,7 +128,7 @@ class ConfigAdvancedGeogebraFormGUI extends BaseAdvancedGeogebraFormGUI
     /**
      * @inheritDoc
      */
-    protected function initCommands()/*: void*/
+    protected function initCommands(): void/*: void*/
     {
         $this->addCommandButton(ilSrGeogebraConfigGUI::CMD_UPDATE_CONFIGURE, $this->txt("save"));
     }

@@ -50,6 +50,7 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
      */
     protected $uploader;
     protected $pl;
+    private $tpl;
 
 
     /**
@@ -244,7 +245,8 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
 
         if (!empty($_FILES["file"]["name"])) {
             if (!$this->uploader->uploadAllowed()) {
-                ilUtil::sendFailure(self::plugin()->translate("form_upload_error"), true);
+               // ilUtil::sendFailure(self::plugin()->translate("form_upload_error"), true);
+                $this->tpl->setOnScreenMessage("success", ilSrGeogebraPlugin::getInstance()->txt("form_upload_error"), true);
                 $this->returnToParent();
                 return;
             }
@@ -272,6 +274,9 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
     }
 
 
+    /**
+     * @throws ilCtrlException
+     */
     protected function setSubTabs($active) {
         self::dic()->tabs()->addSubTab(
             self::SUBTAB_GENERIC_SETTINGS,
@@ -318,7 +323,8 @@ class ilSrGeogebraPluginGUI extends ilPageComponentPluginGUI
     }
 
 
-    protected function updateAdvancedProperties() {
+    protected function updateAdvancedProperties(): void
+    {
         $immutable_fields = Repository::getInstance()->getValue(ConfigAdvancedGeogebraFormGUI::KEY_IMMUTABLE);
         $existing_properties = $this->getProperties();
 

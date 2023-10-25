@@ -220,7 +220,7 @@ class ilSrGeogebraConfigGUI extends ilObjectGUI
 
         if (!$form->storeForm()) {
             ilUtil::sendFailure(self::plugin()->translate("configuration_failed", self::LANG_MODULE), true);
-
+           // $this->tpl->setOnScreenMessage("success", ilSrGeogebraPlugin::getInstance()->txt("update_successful"), true);
             self::dic()->ctrl()->redirect($this, self::CMD_CONFIGURE);
         }
 
@@ -233,7 +233,7 @@ class ilSrGeogebraConfigGUI extends ilObjectGUI
         }
 
         global $tpl, $DIC;
-        $tpl->setOnScreenMessage('success', $this->getPluginObject()->txt("config_configuration_saved"), true);
+        $this->tpl->setOnScreenMessage("success", $this->plugin->txt("update_successful"), true);
         $DIC->ctrl()->redirect($this, self::CMD_CONFIGURE);
     }
 }
