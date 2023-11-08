@@ -72,7 +72,6 @@ final class Items
         if ($field[PropertyFormGUI::PROPERTY_CLASS] instanceof Input) {
             $item = new UIInputComponentWrapperInputGUI($field[PropertyFormGUI::PROPERTY_CLASS], $key);
 
-
             if (empty($item->getTitle())) {
                 if (!$field["setTitle"]) {
                     $item->setTitle($pl->txt($key));
@@ -102,19 +101,10 @@ final class Items
                 }
             } else {
                 if ($item instanceof ilRadioOption) {
-                    if (isset($field["setTitle"])) {
-                        if (!$field["setTitle"]) {
                             $item->setTitle($pl->txt($parent_item->getPostVar() . "_" . $key));
-                        }
-                    }
-
-                    $item->setValue($key);
+                            $item->setValue($key);
                 } else {
-                    if (isset($field["setTitle"])){
-                    if (!$field["setTitle"]) {
-                        $item->setTitle($pl->txt($key));
-                    }}
-
+                    $item->setTitle($pl->txt($key));
                     $item->setPostVar($key);
                 }
             }

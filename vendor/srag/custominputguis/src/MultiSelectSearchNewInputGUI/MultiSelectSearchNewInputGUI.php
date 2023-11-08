@@ -338,6 +338,10 @@ class MultiSelectSearchNewInputGUI extends ilFormPropertyGUI implements ilTableF
      */
     public function setValueByArray(/*array*/ $values)/*: void*/
     {
-        $this->setValue($values[$this->getPostVar()]);
+        if (isset($values[$this->getPostVar()])
+            && is_array($values[$this->getPostVar()])
+        ) {
+            $this->setValue($values[$this->getPostVar()]);
+        }
     }
 }

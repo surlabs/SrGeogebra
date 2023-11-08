@@ -43,6 +43,11 @@ class ilSrGeogebraPlugin extends ilPageComponentPlugin
         return $component_factory->getPlugin('srgg');
     }
 
+    public function getPrefix() : string
+    {
+        return self::PLUGIN_ID;
+    }
+
     /**
      * ilSrGeogebraPlugin constructor
      */

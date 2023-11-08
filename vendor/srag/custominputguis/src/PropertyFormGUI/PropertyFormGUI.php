@@ -163,11 +163,17 @@ abstract class PropertyFormGUI extends ilPropertyFormGUI
      */
     public function txt(string $key,/*?*/ string $default = null) : string
     {
+        /**
         global $DIC;
-        /** @var ilComponentFactory $component_factory */
+        /** @var ilComponentFactory $component_factory
         $component_factory = $DIC["component.factory"];
 
-        return $component_factory->getPlugin('srgg')->txt('config_'.$key);
+        return $component_factory->getPlugin('srgg')->txt('config_'.$key);*/
+        if ($default !== null) {
+            return self::plugin()->translate($key, static::LANG_MODULE, [], true, "", $default);
+        } else {
+            return self::plugin()->translate($key, static::LANG_MODULE);
+        }
     }
 
 

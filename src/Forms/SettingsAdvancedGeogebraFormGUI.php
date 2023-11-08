@@ -64,7 +64,12 @@ class SettingsAdvancedGeogebraFormGUI extends BaseAdvancedGeogebraFormGUI
      */
     protected function initTitle()
     {
-        $this->setTitle($this->txt('form_title_edit'));
+        GLOBAL $DIC;
+        /** @var ilComponentFactory $component_factory */
+        $component_factory = $DIC["component.factory"];
+        $pl = $component_factory->getPlugin('srgg');
+
+        $this->setTitle($pl->txt('form_title_edit'));
     }
 
 

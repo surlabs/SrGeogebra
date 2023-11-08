@@ -75,6 +75,11 @@ abstract class BaseAdvancedGeogebraFormGUI extends PropertyFormGUI
      */
     protected function initFields()/*: void*/
     {
+        GLOBAL $DIC;
+        /** @var ilComponentFactory $component_factory */
+        $component_factory = $DIC["component.factory"];
+        $pl = $component_factory->getPlugin('srgg');
+
         $this->fields = [
             self::KEY_APP_NAME => [
                 self::PROPERTY_CLASS    => ilSelectInputGUI::class,
@@ -131,12 +136,12 @@ abstract class BaseAdvancedGeogebraFormGUI extends PropertyFormGUI
             self::KEY_ENABLE_3D => [
                 self::PROPERTY_CLASS    => ilCheckboxInputGUI::class,
                 "setDisabled" => true,
-                "setInfo" => $this->txt('enable3d_info')
+                "setInfo" => $pl->txt('enable3d_info')
             ],
             self::KEY_ENABLE_CAS => [
                 self::PROPERTY_CLASS    => ilCheckboxInputGUI::class,
                 "setDisabled" => true,
-                "setInfo" => $this->txt('enableCAS_info')
+                "setInfo" => $pl->txt('enableCAS_info')
             ],
             self::KEY_ALGEBRA_INPUT_POSITION => [
                 self::PROPERTY_CLASS    => ilTextInputGUI::class
@@ -156,7 +161,7 @@ abstract class BaseAdvancedGeogebraFormGUI extends PropertyFormGUI
             self::KEY_SCALE => [
                 self::PROPERTY_CLASS    => ilNumberInputGUI::class,
                 "allowDecimals" => true,
-                "setInfo" => $this->txt("scale_info")
+                "setInfo" => $pl->txt("scale_info")
             ],
             self::KEY_SHOW_ANIMATION_BUTTON => [
                 self::PROPERTY_CLASS    => ilCheckboxInputGUI::class

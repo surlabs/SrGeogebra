@@ -40,8 +40,8 @@ class GeogebraFormGUI extends PropertyFormGUI
     const KEY_RESET = "showResetIcon";
     const KEY_ALIGNMENT = "alignment";
     const LANG_MODULE = "form";
-    const MODE_CREATE = 1;
-    const MODE_EDIT = 2;
+    const MODE_CREATE = "1";
+    const MODE_EDIT = "2";
     const ALIGNMENT_LEFT = "left";
     const ALIGNMENT_CENTER = "center";
     const ALIGNMENT_RIGHT = "right";
@@ -147,6 +147,11 @@ class GeogebraFormGUI extends PropertyFormGUI
      */
     protected function initFields()/*: void*/
     {
+        GLOBAL $DIC;
+        /** @var ilComponentFactory $component_factory */
+        $component_factory = $DIC["component.factory"];
+        $pl = $component_factory->getPlugin('srgg');
+
         $this->fields = [
             self::KEY_TITLE => [
                 self::PROPERTY_CLASS    => ilTextInputGUI::class
