@@ -63,7 +63,7 @@ config_header_value#:#Wert
 form_zoom#:#Zoom & Bewegen aktivieren
 form_reset#:#Neu laden aktivieren
 form_title_create#:#Geogebra-Objekt erstellen
-form_title_edit#:#Geogebra-Objekt bearbeiten
+
 form_alignment#:#Ausrichtung
 form_alignment_left#:#Linksbündig
 form_alignment_center#:#Mittig
@@ -118,3 +118,19 @@ save#:#Speichern
 header_immutable#:#Fixiert
 title_create#:#Geogebra-Objekt erstellen
 title_edit#:#Geogebra-Objekt bearbeiten
+title#:#Titel
+width#:#Breite
+height#:#Höhe
+alignment#:#Ausrichtung
+file#:#Upload
+enableShiftDragZoom#:#Zoom & Bewegen aktivieren
+cancel#:#Abbrechen
+right#:#Linksbündig
+center#:#Bittig
+left#:#Rechtsbündig
+showResetIcon#:#Neu laden aktivieren
+form_title_edit#:#Geogebra-Objekt erweiterte Einstellungen bearbeiten
+update_successful#:#Einstellungen erfolgreich gespeichert
+alignment_right#:#Rechtsbündig
+alignment_center#:#Mittig
+alignment_left#:#Linksbündig
