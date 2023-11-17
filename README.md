@@ -25,6 +25,5 @@ Update, activate and config the plugin in the ILIAS Plugin Administration
 See in [doc/DOCUMENTATION.md](./doc/DOCUMENTATION.md)
 
 ## Maintenance
-fluxlabs ag, support@fluxlabs.ch
 
 This project is maintained by Surlabs S.L. info@surlabs.es
