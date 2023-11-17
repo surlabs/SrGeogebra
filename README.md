@@ -35,4 +35,4 @@ See in [doc/DOCUMENTATION.md](./doc/DOCUMENTATION.md)
 ## Maintenance
 fluxlabs ag, support@fluxlabs.ch
 
-Surlabs S.L. info@surlabs.es
+This project is maintained by Surlabs S.L. info@surlabs.es
