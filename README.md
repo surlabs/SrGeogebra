@@ -4,7 +4,6 @@ This is a fork created by SURLABS of the FLUXLABS' SrGeogebra Plugin for ILIAS
 
 This version is valid for ILIAS6 or ILIAS7 with PHP 7.0 or 7.4
 
-SURLABS is not responsible for the plugin
 
 ## Installation
 
