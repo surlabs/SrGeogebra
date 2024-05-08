@@ -65,7 +65,7 @@ class CustomInputGUIsLoaderDetector extends AbstractLoaderDetector
             self::$has_fix_ctrl_namespace_current_url = true;
 
             // Fix language select meta bar which current ctrl gui has namespaces (public page)
-            if(isset($_SERVER["REQUEST_URI"])){
+            if (is_array($_SERVER) && isset($_SERVER["REQUEST_URI"]) && is_string($_SERVER["REQUEST_URI"])) {
                 $_SERVER["REQUEST_URI"] = str_replace("\\", "%5C", $_SERVER["REQUEST_URI"]);
             }
         }
