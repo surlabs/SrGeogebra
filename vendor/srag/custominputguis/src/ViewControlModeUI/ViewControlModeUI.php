@@ -78,16 +78,19 @@ class ViewControlModeUI
      */
     public function render() : string
     {
-        ilSession::set(self::CMD_HANDLE_BUTTONS . "_" . $this->id . "_url", $_SERVER["REQUEST_URI"]);
+        if (isset($_SERVER["REQUEST_URI"])) {
+            ilSession::set(self::CMD_HANDLE_BUTTONS . "_" . $this->id . "_url", $_SERVER["REQUEST_URI"]);
 
-        $actions = [];
+            $actions = [];
 
-        foreach ($this->buttons as $id => $txt) {
-            $actions[$txt] = $this->link . "&" . self::CMD_HANDLE_BUTTONS . "=" . $id;
+            foreach ($this->buttons as $id => $txt) {
+                $actions[$txt] = $this->link . "&" . self::CMD_HANDLE_BUTTONS . "=" . $id;
+            }
+
+            return self::output()->getHTML(self::dic()->ui()->factory()->viewControl()->mode($actions, "")
+                ->withActive($this->buttons[$this->getActiveId()]));
         }
-
-        return self::output()->getHTML(self::dic()->ui()->factory()->viewControl()->mode($actions, "")
-            ->withActive($this->buttons[$this->getActiveId()]));
+        return "";
     }
 
 
