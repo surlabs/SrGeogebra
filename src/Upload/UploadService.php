@@ -15,7 +15,11 @@ class UploadService
     public function handleUpload($form, $file_name, $page_id, $parent_id) {
         global $DIC;
 
-        $upload = $DIC->upload();
+        $upload = new \ILIAS\FileUpload\FileUploadImpl(
+                $DIC['upload.processor-manager'],
+                $DIC['filesystem'],
+                $DIC['http']
+        );
 
         if (!$upload->hasUploads() || $upload->hasBeenProcessed()) {
             $form->setValuesByPost();
